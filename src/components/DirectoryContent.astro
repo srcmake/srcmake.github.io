@@ -1,0 +1,16 @@
+---
+import categories from '../data/categories.json';
+const totalPosts = categories.reduce((total, category) => total + category.posts.length, 0);
+---
+
+<section class="intro"><p class="eyebrow">Complete archive</p><h1>Directory</h1><p>All {totalPosts} posts, organized by topic.</p></section>
+<div class="directory-index">
+  {categories.map((category) => (
+    <section class="directory-category">
+      <h2>{category.name}</h2>
+      <ul>
+        {category.posts.map((post) => <li class="directory-entry"><a href={`/home/${post.slug}`}>{post.title}</a> <time>{post.date}</time></li>)}
+      </ul>
+    </section>
+  ))}
+</div>

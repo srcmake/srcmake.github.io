@@ -6,7 +6,7 @@
   "scripts": {
     "generate": "node scripts/generate-migration.mjs",
     "cache:youtube": "node scripts/cache-youtube-thumbnails.mjs",
-    "build": "astro build",
+    "build": "astro build && node scripts/write-compatibility-pages.mjs",
     "dev": "astro dev",
     "validate:migration": "node scripts/validate-migration.mjs"
   },
