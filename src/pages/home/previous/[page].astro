@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PostList from '../../../components/PostList.astro';
+import archivePages from '../../../data/archives.json';
+
+export function getStaticPaths() {
+  return archivePages.slice(1).map(({ page, posts }) => ({
+    params: { page: String(page) },
+    props: { page, posts },
+  }));
+}
+
+const { page, posts: pagePosts } = Astro.props;
+---
+
+<BaseLayout title={`Archive page ${page}`} canonicalPath={`/home/previous/${page}`}>
+  <section class="intro"><p class="eyebrow">Archive</p><h1>Older posts</h1></section>
+  <PostList posts={pagePosts} />
+  <nav class="pagination" aria-label="Archive pagination">
+    {page > 2 && <a href={`/home/previous/${page - 1}`}>← Newer posts</a>}
+    {page === 2 && <a href="/">← Newer posts</a>}
+    {page < 29 && <a href={`/home/previous/${page + 1}`}>Older posts →</a>}
+  </nav>
+</BaseLayout>

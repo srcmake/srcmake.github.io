@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import about from '../data/about.html?raw';
+---
+
+<BaseLayout title="About" canonicalPath="/about">
+  <article class="page-content"><h1>About</h1><div class="article-content" set:html={about} /></article>
+</BaseLayout>

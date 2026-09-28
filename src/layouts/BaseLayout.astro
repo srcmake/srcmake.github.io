@@ -1,0 +1,37 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  canonicalPath: string;
+}
+
+const { title, description, canonicalPath } = Astro.props;
+const canonical = `https://www.srcmake.com${canonicalPath}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} | /src$ make</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="canonical" href={canonical} />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="brand" href="/" aria-label="srcmake home">/src$ make</a>
+        <nav aria-label="Primary navigation">
+          <a href="/">Home</a>
+          <a href="/directory">Directory</a>
+          <a href="/about">About</a>
+        </nav>
+      </div>
+    </header>
+    <main class="shell"><slot /></main>
+    <footer class="site-footer"><div class="shell">An archived technical blog by srcmake.</div></footer>
+  </body>
+</html>

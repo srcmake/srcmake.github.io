@@ -1,0 +1,21 @@
+---
+const { posts } = Astro.props;
+---
+
+<ol class="preview-list">
+  {posts.map((post) => (
+    <li>
+      <article class:list={['preview-card', { 'preview-card--text-only': post.thumbnail.type === 'fallback' }]}>
+        {post.thumbnail.type !== 'fallback' && <a class="preview-media" href={`/home/${post.slug}`} aria-label={`Read ${post.title}`}>
+          <img src={post.thumbnail.src} alt="" loading="lazy" />
+        </a>}
+        <div class="preview-copy">
+          <h2><a href={`/home/${post.slug}`}>{post.title}</a></h2>
+          <time>{post.date}</time>
+          <p>{post.excerpt}</p>
+          <a class="read-more" href={`/home/${post.slug}`}>Read article <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+    </li>
+  ))}
+</ol>

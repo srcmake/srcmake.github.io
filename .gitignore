@@ -1,0 +1,12 @@
+.migration-archive/
+migration.txt
+MIGRATION_AUDIT.md
+MIGRATION_PHASE2_REPORT.md
+migration/
+scripts/generate-migration.mjs
+scripts/cache-youtube-thumbnails.mjs
+scripts/validate-migration.mjs
+src/data/migration-stats.json
+node_modules/
+dist/
+.astro/

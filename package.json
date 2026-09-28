@@ -1,0 +1,28 @@
+{
+  "name": "srcmake.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "generate": "node scripts/generate-migration.mjs",
+    "cache:youtube": "node scripts/cache-youtube-thumbnails.mjs",
+    "build": "astro build",
+    "dev": "astro dev",
+    "validate:migration": "node scripts/validate-migration.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srcmake/srcmake.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/srcmake/srcmake.github.io/issues"
+  },
+  "homepage": "https://github.com/srcmake/srcmake.github.io#readme",
+  "dependencies": {
+    "astro": "^5.18.2",
+    "cheerio": "^1.2.0"
+  }
+}

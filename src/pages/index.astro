@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostList from '../components/PostList.astro';
+import posts from '../data/posts.json';
+const pagePosts = posts.slice(0, 3);
+---
+
+<BaseLayout title="Home" canonicalPath="/">
+  <section class="intro"><p class="eyebrow">Technical blog archive</p><h1>Programming tutorials, notes, and experiments.</h1></section>
+  <PostList posts={pagePosts} />
+  <nav class="pagination pagination--older-only" aria-label="Archive pagination"><a href="/home/previous/2">Older posts →</a></nav>
+</BaseLayout>
